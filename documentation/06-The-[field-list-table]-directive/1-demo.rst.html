@@ -1,0 +1,1977 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/" />
+<title>1-demo.rst: Directive 'field-list-table'</title>
+<meta name="author" content="Martin Bless" />
+<meta name="date" content="2011-12-06" />
+<style type="text/css">
+
+/* everything "hacked" by mb, 2011-10-04, 2011-10-13 */
+
+/* This stylesheet has been placed in the public domain. */
+
+
+/* @font-face:
+ * see preview.typo3.org
+ */
+
+@font-face {
+    font-family: 'Share';
+    src: url('../../03-font-share/share-bold-webfont.eot');
+    src: url('../../03-font-share/share-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../03-font-share/share-bold-webfont.woff') format('woff'),
+         url('../../03-font-share/share-bold-webfont.ttf') format('truetype'),
+         url('../../03-font-share/share-bold-webfont.svg#Share-BoldRegular') format('svg');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Share';
+    src: url('../../03-font-share/share-italic-webfont.eot');
+    src: url('../../03-font-share/share-italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../03-font-share/share-italic-webfont.woff') format('woff'),
+         url('../../03-font-share/share-italic-webfont.ttf') format('truetype'),
+         url('../../03-font-share/share-italic-webfont.svg#Share-ItalicRegular') format('svg');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Share';
+    src: url('../../03-font-share/share-regular-webfont.eot');
+    src: url('../../03-font-share/share-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../../03-font-share/share-regular-webfont.woff') format('woff'),
+         url('../../03-font-share/share-regular-webfont.ttf') format('truetype'),
+         url('../../03-font-share/share-regular-webfont.svg#Share-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
+
+
+/*
+ * :Author: Sabine Hueber
+ * :Contact: sabine@designeon.de
+ * :Copyright: This stylesheet has been placed in the public domain.
+ * 
+ * Stylesheet for use with Docutils and the TYPO3 documentation
+ * 
+ */
+
+body {
+	font-family: arial, 'Helvetica Neue', helvetica, sans-serif;
+	font-size: 87.5%;
+	line-height: 1.4;
+	background-colore: #ffffff;
+}
+.document {
+	padding: 3em;
+}
+
+/* fonts */
+
+h1#none,
+h2#none,
+h3#none,
+h4#none,
+h5#none,
+h6#none,
+p#none.topic-title {
+	font-family: Share, sans-serif;
+}
+h1,
+h2,
+h3,
+p.topic-title {
+	font-family: Share, arial, 'Helvetica Neue', helvetica, sans-serif;
+}
+
+h1 {
+
+	/* brown */
+	color: #e8d3cc; /* +4 brown */
+	color: #d1a699; /* +3 brown */
+	color: #ba7a66; /* +2 brown */
+	color: #a34e33; /* +1 brown */
+	color: #8c2100; /*  0 brown */
+	color: #691900; /* -1 brown */
+	color: #461100; /* -2 brown */
+	color: #230800; /* -3 brown */
+	color: #000000; /* -4 brown */
+
+	/* orange-red */
+	color: #ffd8cc; /* +4 orange-red */
+	color: #ffb199; /* +3 orange-red */
+	color: #ff8a66; /* +2 orange-red */
+	color: #ff6433; /* +1 orange-red */
+	color: #ff3d00; /*  0 orange-red */
+	color: #bf2d00; /* -1 orange-red */
+	color: #7f1e00; /* -2 orange-red */
+	color: #400f00; /* -3 orange-red */
+	color: #000000; /* -4 orange-red */
+
+	/* blue */
+	color: #cce0eb; /* +4 blue */
+	color: #99c0d6; /* +3 blue */
+	color: #66a1c2; /* +2 blue */
+	color: #3381ad; /* +1 blue */
+	color: #006299; /*  0 blue */
+	color: #004973; /* -1 blue */
+	color: #00314c; /* -2 blue */
+	color: #001826; /* -3 blue */
+	color: #000000; /* -4 blue */
+
+
+	/* #ff8700 = TYPO3 yellow-orange = base color, "high contrast scheme 4" of illustrator */
+	color: #ffe7cc; /* +4 TYPO3 orange */
+	color: #ffcf99; /* +3 TYPO3 orange */
+	color: #ffb766; /* +2 TYPO3 orange */
+	color: #ff9f33; /* +1 TYPO3 orange */
+	color: #FF8700; /*  0 TYPO3 orange */
+	color: #bf6500; /* -1 TYPO3 orange */
+	color: #804400; /* -2 TYPO3 orange */
+	color: #402200; /* -3 TYPO3 orange */
+	color: #000000; /* -4 TYPO3 orange */
+
+	color: #FF8700; /*  0 TYPO3 orange */
+
+
+}
+
+
+h1#none {
+	color: #EF8100;
+	font-size: 1.7em;
+	font-weight: normal;
+	line-height: 1.2em;
+	margin: 1.0em 0 0.8em 0;
+	padding: 0.4em 0 0;
+	border-bottom: 1px solid #EF8100;
+}
+
+h2#none {
+	color: #EF8100;
+	font-size: 1.4em;
+	font-weight: normal;
+	line-height: 1.2em;
+	margin-bottom: 0.6em;
+	padding: 0.6em 0;
+}
+
+p.topic-title {
+	font-weight: bold;
+}
+
+/* links */
+
+a {
+	color: 
+	background: none repeat scroll 0 0 transparent;
+	text-decoration: none;
+	color: #006299; /*  0 a blue */
+}
+a:visited {
+	/* blue */
+	color: #cce0eb; /* +4 */
+	color: #99c0d6; /* +3 */
+	color: #66a1c2; /* +2 */
+	color: #3381ad; /* +1 blue */
+	color: #004973; /* -1 */
+	color: #00314c; /* -2 */
+	color: #001826; /* -3 */
+	color: #000000; /* -4 */
+	color: #006299; /*  0 a blue */
+}
+a:active {
+	color: #00314c; /* -2 */
+}
+a:hover ,
+a:focus {
+	color: #00314c; /* -2 */
+	text-decoration: underline;
+}
+a.external {
+	text-decoration: none;
+	border-bottom: 1px dotted #006299;
+}
+a.external:hover,
+a.external:focus
+ {
+	text-decoration: none;
+	border-bottom: 1px solid #00314c;
+}
+.internal {
+	text-decoration: none;
+}
+
+
+h1 a:link,  h1 a:visited,
+h1 a:hover, h1 a:focus
+{
+	color: #ff8700;
+}
+h2 a:link,  h2 a:visited,
+h2 a:hover, h2 a:focus
+{
+	color: #303030;
+}
+h3 a:link,  h3 a:visited,
+h3 a:hover, h3 a:focus,
+h4 a:link,  h4 a:visited,
+h4 a:hover, h4 a:focus,
+h5 a:link,  h5 a:visited,
+h5 a:hover, h5 a:focus,
+h6 a:link,  h6 a:visited,
+h6 a:hover, h6 a:focus
+{
+	color: #303030;
+}
+h1 a:hover, h1 a:focus,
+h2 a:hover, h2 a:focus,
+h3 a:hover, h3 a:focus,
+h4 a:hover, h4 a:focus,
+h5 a:hover, h5 a:focus,
+h6 a:hover, h6 a:focus
+{
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* content sections - general */
+
+.section {
+}
+#none.section h1 a,
+#none.section h2 a,
+#none.section h3 a {
+	color: #EF8100;
+}
+tt.docutils {
+	font-size: 1.2em;
+}
+
+/* content sections - head of the document*/
+
+.docinfo-name {
+	color: #333;
+	margin-left: 0px;
+}
+.docinfo {
+	margin: 1em 0;
+	padding: 0.5em;
+	background-color: #ffffff;
+	/* width: 100%; */
+}
+ul.auto-toc li {
+	list-style-type: none;
+}
+
+
+
+h1#none,
+h2#none,
+h3#none,
+h4#none,
+h5#none,
+h6#none,
+p#none.topic-title {
+	font-family: Share-Regular, sans-serif;
+}
+
+tt#none.docutils,
+pre#none {
+	font-family: Share-TechMono, monospace;
+}
+
+
+table {
+	/* border-collapse: collapse; */
+	border: 1px none black;
+}
+
+th {
+	background-color: #e8d3cc; /* +4 brown */
+	border: 1px none black;
+}
+td {
+	background-color: #ffe7cc; /* +4 TYPO3 orange */
+	border: 1px none black;
+}
+
+
+
+
+table.docinfo,
+.literal-block,
+pre.literal-block {
+	background: #f8f8f8;
+	border: 1px solid #d8d8d8;
+}
+table.docinfo th,
+table.docinfo td {
+	background-color: transparent;
+}
+
+
+
+/* found at preview.typo3.org: Arial,'Helvetica Neue',Helvetica,sans-serif */
+/*                                                                     */
+/* html {                                                              */
+/* 	font: 12px/18px Arial,'Helvetica Neue',Helvetica,sans-serif;       */
+/* }                                                                   */
+/* body {                                                              */
+/* 	font-size: 120%;                                                   */
+/* }                                                                   */
+
+
+
+/*
+ * :Author: David Goodger (goodger@python.org)
+ * :Id: $Id: html4css1.css 5951 2009-05-18 18:03:10Z milde $
+ * :Copyright: This stylesheet has been placed in the public domain.
+ * 
+ * Default cascading style sheet for the HTML output of Docutils.
+ * 
+ * See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+ * customize this style sheet.
+ */
+
+	/* used to remove borders from tables and images */
+.borderless,
+table.borderless td,
+table.borderless th {
+	border: 0;
+}
+table.borderless td,
+table.borderless th {
+	/* Override padding for "table.docutils td" with "! important". */
+	/* The right padding separates the table cells. */
+	padding: 0 0.5em 0 0 ! important;
+}
+.first {
+		/* Override more specific margin styles with "! important". */
+	margin-top: 0 ! important;
+}
+.last,
+.with-subtitle {
+	margin-bottom: 0 ! important;
+}
+.hidden {
+	display: none;
+}
+a.toc-backref {
+	text-decoration: none;
+}
+blockquote.epigraph {
+	margin: 2em 5em;
+}
+dl.docutils dd {
+	margin-bottom: 0.5em;
+}
+/* Uncomment (and remove this text!) to get bold-faced definition list terms */
+	dl.docutils dt {
+		font-weight: bold;
+	}
+/* */
+div.abstract {
+	margin: 2em 5em;
+}
+
+div.abstract p.topic-title {
+	font-weight: bold;
+	text-align: center;
+}
+
+div.admonition,
+div.attention,
+div.caution,
+div.danger,
+div.error,
+div.hint,
+div.important,
+div.note,
+div.tip,
+div.warning {
+	margin: 2em;
+	border: medium outset;
+	padding: 1em;
+}
+div.admonition p.admonition-title,
+div.hint p.admonition-title,
+div.important p.admonition-title,
+div.note p.admonition-title,
+div.tip p.admonition-title {
+	font-weight: bold;
+	font-family: sans-serif;
+}
+div.attention p.admonition-title,
+div.caution p.admonition-title,
+div.danger p.admonition-title,
+div.error p.admonition-title,
+div.warning p.admonition-title {
+	color: red;
+	font-weight: bold;
+	font-family: sans-serif;
+}
+
+/* Uncomment (and remove this text!) to get reduced vertical space in compound paragraphs. */
+	div.compound .compound-first,
+	div.compound .compound-middle {
+		margin-bottom: 0.5em;
+	}
+	div.compound .compound-last,
+	div.compound .compound-middle {
+		margin-top: 0.5em;
+	}
+/* */
+div.dedication {
+	margin: 2em 5em;
+	text-align: center;
+	font-style: italic;
+}
+div.dedication p.topic-title {
+	font-weight: bold;
+	font-style: normal;
+}
+div.figure {
+	margin-left: 2em;
+	margin-right: 2em;
+}
+div.footer,
+div.header {
+	clear: both;
+	font-size: smaller;
+}
+div.line-block {
+	display: block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+div.line-block div.line-block {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+div.sidebar {
+	margin: 0 0 0.5em 1em;
+	border: medium outset;
+	padding: 1em;
+	background-color: #ffffee;
+	width: 40%;
+	float: right;
+	clear: right;
+}
+div.sidebar p.rubric {
+	font-family: sans-serif;
+	font-size: medium;
+}
+div.system-messages {
+	margin: 5em;
+}
+div.system-messages h1 {
+	color: red;
+}
+div.system-message {
+	border: medium outset;
+	padding: 1em;
+}
+div.system-message p.system-message-title {
+	color: red;
+	font-weight: bold;
+}
+div.topic {
+	margin: 2em;
+}
+h1.section-subtitle,
+h2.section-subtitle,
+h3.section-subtitle,
+h4.section-subtitle,
+h5.section-subtitle,
+h6.section-subtitle {
+	margin-top: 0.4em;
+}
+h1.title {
+	text-align: center;
+}
+h2.subtitle {
+	text-align: center;
+}
+hr.docutils {
+	width: 75%;
+}
+img.align-left,
+.figure.align-left {
+	clear: left;
+	float: left;
+	margin-right: 1em;
+}
+img.align-right,
+.figure.align-right {
+	clear: right;
+	float: right;
+	margin-left: 1em;
+}
+.align-left {
+	text-align: left;
+}
+.align-center {
+	clear: both;
+	text-align: center;
+}
+.align-right {
+	text-align: right;
+}
+	/* reset inner alignment in figures */
+div.align-right {
+	text-align: left;
+}
+/* div.align-center * { */
+/*   text-align: left;} */
+ol.simple,
+ul.simple {
+	margin-bottom: 1em;
+}
+ol.arabic {
+	list-style: decimal;
+}
+ol.loweralpha {
+	list-style: lower-alpha;
+}
+ol.upperalpha {
+	list-style: upper-alpha;
+}
+ol.lowerroman {
+	list-style: lower-roman;
+}
+ol.upperroman {
+	list-style: upper-roman;
+}
+p.attribution {
+	text-align: right;
+	margin-left: 50%;
+}
+p.caption {
+	font-style: italic;
+}
+p.credits {
+	font-style: italic;
+	font-size: smaller;
+}
+p.label {
+	white-space: nowrap;
+}
+p.rubric {
+	font-weight: bold;
+	font-size: larger;
+	color: maroon;
+	text-align: center;
+}
+p.sidebar-title {
+	font-family: sans-serif;
+	font-weight: bold;
+	font-size: larger;
+}
+p.sidebar-subtitle {
+	font-family: sans-serif;
+	font-weight: bold;
+}
+p.topic-title {
+	font-weight: bold;
+}
+pre.address {
+	margin-bottom: 0;
+	margin-top: 0;
+	font: inherit;
+}
+pre.literal-block, pre.doctest-block {
+	margin-left: 2em;
+	margin-right: 2em;
+}
+span.classifier {
+	font-family: sans-serif;
+	font-style: oblique;
+}
+span.classifier-delimiter {
+	font-family: sans-serif;
+	font-weight: bold;
+}
+span.interpreted {
+	font-family: sans-serif;
+}
+span.option {
+	white-space: nowrap;
+}
+span.pre {
+	white-space: pre;
+}
+span.problematic {
+	color: red;
+}
+span.section-subtitle {
+		/* font-size relative to parent (h1..h6 element) */
+	font-size: 80%;
+}
+table.citation {
+	border-left: solid 1px gray;
+	margin-left: 1px;
+}
+table.docinfo {
+	margin: 2em 4em;
+}
+table.docutils {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+table.footnote {
+	border-left: solid 1px black;
+	margin-left: 1px;
+	background-color: transparent;
+}
+
+table.footnote,
+table.footnote th,
+table.footnote td {
+	background-color: transparent;
+}
+
+table.citation,
+table.citation th,
+table.citation td {
+	background-color: transparent;
+}
+
+
+
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+	padding-left: 0.5em;
+	padding-right: 0.5em;
+	vertical-align: top;
+}
+
+table.docutils th.field-name,
+table.docinfo th.docinfo-name {
+	font-weight: bold;
+	text-align: left;
+	white-space: nowrap;
+	padding-left: 0;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+	font-size: 100%;
+}
+
+ul.auto-toc {
+	list-style-type: none;
+}
+
+
+
+/* mb, 2011-11-22 */
+
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.justify {
+	text-align: justify;
+}
+.center {
+	text-align: center;
+}
+table.docutils td.top,
+table.docutils th.top,
+.top {
+	vertical-align: top;
+}
+table.docutils td.middle,
+table.docutils th.middle,
+.middle {
+	vertical-align: middle;
+}
+table.docutils td.bottom,
+table.docutils th.bottom,
+.bottom {
+	vertical-align: bottom;
+}
+
+div.abstract p {
+	text-align: center;
+}
+
+
+</style>
+</head>
+<body>
+<div class="document" id="demo-rst-directive-field-list-table">
+<h1 class="title">1-demo.rst: Directive 'field-list-table'</h1>
+<h2 class="subtitle" id="restructuredtext-demonstration">reStructuredText Demonstration</h2>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Martin Bless</td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2011-12-06</td></tr>
+<tr class="field"><th class="docinfo-name">email:</th><td class="field-body"><a class="reference external" href="mailto:martin.bless&#64;gmail.com">martin.bless&#64;gmail.com</a></td>
+</tr>
+<tr class="field"><th class="docinfo-name">web:</th><td class="field-body"><a class="reference external" href="http://mbless.de">http://mbless.de</a></td>
+</tr>
+<tr class="field"><th class="docinfo-name">copyleft:</th><td class="field-body">This document has been placed into the public domain</td>
+</tr>
+</tbody>
+</table>
+<div class="abstract topic">
+<p class="topic-title first">Abstract</p>
+<p>Positive examples showing correct usage.</p>
+</div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="auto-toc simple">
+<li><a class="reference internal" href="#files" id="id13">1&nbsp;&nbsp;&nbsp;Files</a></li>
+<li><a class="reference internal" href="#usage" id="id14">2&nbsp;&nbsp;&nbsp;Usage</a></li>
+<li><a class="reference internal" href="#learning-by-example-the-field-list-table-directive" id="id15">3&nbsp;&nbsp;&nbsp;Learning by example: The &quot;field-list-table&quot; directive</a><ul class="auto-toc">
+<li><a class="reference internal" href="#the-most-simple-form" id="id16">3.1&nbsp;&nbsp;&nbsp;The most simple form</a><ul class="auto-toc">
+<li><a class="reference internal" href="#source" id="id17">3.1.1&nbsp;&nbsp;&nbsp;Source</a></li>
+<li><a class="reference internal" href="#result" id="id18">3.1.2&nbsp;&nbsp;&nbsp;Result</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-most-simple-form-nested-in-another-field-name-table" id="id19">3.2&nbsp;&nbsp;&nbsp;The most simple form nested in another field name table</a></li>
+<li><a class="reference internal" href="#a-more-illustrative-example" id="id20">3.3&nbsp;&nbsp;&nbsp;A more illustrative example</a><ul class="auto-toc">
+<li><a class="reference internal" href="#id4" id="id21">3.3.1&nbsp;&nbsp;&nbsp;Source</a></li>
+<li><a class="reference internal" href="#id5" id="id22">3.3.2&nbsp;&nbsp;&nbsp;Result</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#the-more-illustrative-example-nested-in-another-field-list-table" id="id23">3.4&nbsp;&nbsp;&nbsp;The &quot;More illustrative example&quot; nested in another field-list-table</a></li>
+<li><a class="reference internal" href="#column-spans" id="id24">3.5&nbsp;&nbsp;&nbsp;Column spans</a><ul class="auto-toc">
+<li><a class="reference internal" href="#id6" id="id25">3.5.1&nbsp;&nbsp;&nbsp;Source</a></li>
+<li><a class="reference internal" href="#id7" id="id26">3.5.2&nbsp;&nbsp;&nbsp;Result</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#complex-example-for-column-and-row-spans" id="id27">3.6&nbsp;&nbsp;&nbsp;Complex example for column and row spans</a><ul class="auto-toc">
+<li><a class="reference internal" href="#id8" id="id28">3.6.1&nbsp;&nbsp;&nbsp;Source</a></li>
+<li><a class="reference internal" href="#id9" id="id29">3.6.2&nbsp;&nbsp;&nbsp;Result</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#another-complex-spanning-example" id="id30">3.7&nbsp;&nbsp;&nbsp;Another complex spanning example</a><ul class="auto-toc">
+<li><a class="reference internal" href="#source-in-grid-notation" id="id31">3.7.1&nbsp;&nbsp;&nbsp;Source in grid notation</a></li>
+<li><a class="reference internal" href="#result-of-grid-notation" id="id32">3.7.2&nbsp;&nbsp;&nbsp;Result of grid notation</a></li>
+<li><a class="reference internal" href="#source-in-field-list-table-notation" id="id33">3.7.3&nbsp;&nbsp;&nbsp;Source in field-list-table notation</a></li>
+<li><a class="reference internal" href="#result-of-field-list-table-notation" id="id34">3.7.4&nbsp;&nbsp;&nbsp;Result of field-list-table notation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comprehensive-docutils-example-table" id="id35">3.8&nbsp;&nbsp;&nbsp;Comprehensive docutils example table</a><ul class="auto-toc">
+<li><a class="reference internal" href="#source-given-as-standard-grid-notation-a" id="id36">3.8.1&nbsp;&nbsp;&nbsp;Source given as standard grid notation (A)</a></li>
+<li><a class="reference internal" href="#source-given-as-field-list-table-notation-b" id="id37">3.8.2&nbsp;&nbsp;&nbsp;Source given as field-list-table notation (B)</a></li>
+<li><a class="reference internal" href="#result-of-standard-grid-notation-a" id="id38">3.8.3&nbsp;&nbsp;&nbsp;Result of standard grid notation (A)</a></li>
+<li><a class="reference internal" href="#result-of-field-list-table-notation-b" id="id39">3.8.4&nbsp;&nbsp;&nbsp;Result of field-list-table notation (B)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#alignment-for-columns" id="id40">3.9&nbsp;&nbsp;&nbsp;Alignment for columns</a></li>
+<li><a class="reference internal" href="#alignment-for-individual-table-cells" id="id41">3.10&nbsp;&nbsp;&nbsp;Alignment for individual table cells</a></li>
+<li><a class="reference internal" href="#comments-within-the-source-of-a-field-list-table" id="id42">3.11&nbsp;&nbsp;&nbsp;Comments within the source of a field-list-table</a><ul class="auto-toc">
+<li><a class="reference internal" href="#id10" id="id43">3.11.1&nbsp;&nbsp;&nbsp;Source</a></li>
+<li><a class="reference internal" href="#id11" id="id44">3.11.2&nbsp;&nbsp;&nbsp;Result</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#defining-columns-column-identifiers" id="id45">3.12&nbsp;&nbsp;&nbsp;Defining columns: column identifiers</a></li>
+<li><a class="reference internal" href="#defining-columns-column-ids-widths-alignments" id="id46">3.13&nbsp;&nbsp;&nbsp;Defining columns: column ids, widths, alignments</a></li>
+<li><a class="reference internal" href="#options-for-the-field-list-table-directive" id="id47">3.14&nbsp;&nbsp;&nbsp;Options for the field-list-table directive</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="files">
+<h1><a class="toc-backref" href="#id13">1&nbsp;&nbsp;&nbsp;Files</a></h1>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">File</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><a class="reference external" href=".">Overview</a></td>
+<td>The current folder.</td>
+</tr>
+<tr><td><a class="reference external" href="fieldlisttable_py">fieldlisttable.py</a></td>
+<td>This is the implementation of the directive.</td>
+</tr>
+<tr><td><a class="reference external" href="rst2html_typo3_py">rst2html_typo3.py</a></td>
+<td>This is an augmented version of rst2html.py.
+It knows about the field-list-table directive
+and uses an extended HTML-writer that supports
+alignment of table cells. Plus more ...</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="usage">
+<h1><a class="toc-backref" href="#id14">2&nbsp;&nbsp;&nbsp;Usage</a></h1>
+<dl class="docutils">
+<dt>Get help</dt>
+<dd><div class="first last line-block">
+<div class="line"><tt class="docutils literal">$: python <span class="pre">rst2html-typo3.py</span> <span class="pre">--help</span></tt></div>
+</div>
+</dd>
+<dt>Produce HTML from reStructuredText</dt>
+<dd><tt class="docutils literal">$: python <span class="pre">rst2html-typo3.py</span> <span class="pre">1-demo.rst</span> <span class="pre">2-demo.rst.html</span></tt></dd>
+</dl>
+</div>
+<div class="section" id="learning-by-example-the-field-list-table-directive">
+<h1><a class="toc-backref" href="#id15">3&nbsp;&nbsp;&nbsp;Learning by example: The &quot;field-list-table&quot; directive</a></h1>
+<div class="section" id="the-most-simple-form">
+<h2><a class="toc-backref" href="#id16">3.1&nbsp;&nbsp;&nbsp;The most simple form</a></h2>
+<p>The most simple form consists of just the directive statement,
+one bullet list item and one field list item.</p>
+<div class="section" id="source">
+<h3><a class="toc-backref" href="#id17">3.1.1&nbsp;&nbsp;&nbsp;Source</a></h3>
+<pre class="literal-block">
+.. field-list-table::
+
+ * :a: Cell A
+</pre>
+</div>
+<div class="section" id="result">
+<h3><a class="toc-backref" href="#id18">3.1.2&nbsp;&nbsp;&nbsp;Result</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Cell A</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="the-most-simple-form-nested-in-another-field-name-table">
+<h2><a class="toc-backref" href="#id19">3.2&nbsp;&nbsp;&nbsp;The most simple form nested in another field name table</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="2">The most simple form consists of the directive,
+one bullet list item and one field list item.
+The source is in the left column and the output
+in the right column.</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><p class="first">Source:</p>
+<pre class="last literal-block">
+.. field-list-table::
+
+ * :a: Cell A
+</pre>
+</td>
+<td><p class="first">Result:</p>
+<table border="1" class="last docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Cell A</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="a-more-illustrative-example">
+<h2><a class="toc-backref" href="#id20">3.3&nbsp;&nbsp;&nbsp;A more illustrative example</a></h2>
+<p>The names of the field list like &quot;year&quot;, &quot;type a&quot; and &quot;type b&quot; are identifiers of columns
+and therefore called &quot;columnId&quot;. The are used internally only.</p>
+<p><strong>The first field list always</strong> is the <em>definition row</em>. Following field lists are <em>data rows</em>.
+In data rows the order of the items doesn't matter. For <em>data rows</em> columns may be omitted.</p>
+<p>In this example we have a table title, one header row and one stub column. The &quot;year&quot; column is
+given a width of 10%. The remaining 90% are equally split and given to the
+remaining columns.</p>
+<div class="section" id="id4">
+<h3><a class="toc-backref" href="#id21">3.3.1&nbsp;&nbsp;&nbsp;Source</a></h3>
+<pre class="literal-block">
+.. field-list-table:: Albums of Peter, Paul &amp; Mary.
+ :header-rows: 1
+ :stub-columns: 1
+
+ * :year,10:    Year
+   :type a:  Album Type A
+   :type b:  Album Type B
+
+ * :type a:  Peter, Paul and Mary
+   :year:    1962
+
+ * :type a:  Moving
+   :year:    1963
+
+ * :year:    1963
+   :type b:  In the Wind
+
+ * :year:    1964
+   :type a:  In Concert
+
+ * :year:    1965
+   :type b:  ASong will Rise
+
+ * :year:    1965
+   :type a:  See What Tomorrow Brings
+</pre>
+</div>
+<div class="section" id="id5">
+<h3><a class="toc-backref" href="#id22">3.3.2&nbsp;&nbsp;&nbsp;Result</a></h3>
+<table border="1" class="docutils">
+<caption>Albums of Peter, Paul &amp; Mary.</caption>
+<colgroup>
+<col width="10%" />
+<col width="45%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head stub">Year</th>
+<th class="head">Album Type A</th>
+<th class="head">Album Type B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><th class="stub">1962</th>
+<td>Peter, Paul and Mary</td>
+<td>&nbsp;</td>
+</tr>
+<tr><th class="stub">1963</th>
+<td>Moving</td>
+<td>&nbsp;</td>
+</tr>
+<tr><th class="stub">1963</th>
+<td>&nbsp;</td>
+<td>In the Wind</td>
+</tr>
+<tr><th class="stub">1964</th>
+<td>In Concert</td>
+<td>&nbsp;</td>
+</tr>
+<tr><th class="stub">1965</th>
+<td>&nbsp;</td>
+<td>ASong will Rise</td>
+</tr>
+<tr><th class="stub">1965</th>
+<td>See What Tomorrow Brings</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="the-more-illustrative-example-nested-in-another-field-list-table">
+<h2><a class="toc-backref" href="#id23">3.4&nbsp;&nbsp;&nbsp;The &quot;More illustrative example&quot; nested in another field-list-table</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="2">Example &quot;Column identifiers&quot; nested in another field-list-table</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td colspan="2"><p class="first">The names of the field list like &quot;year&quot;, &quot;type a&quot; and &quot;type b&quot; are identifiers of columns
+and therefore called &quot;columnId&quot;. The are used internally only.</p>
+<p><strong>The first field list always</strong> is the <em>definition row</em>. Following field lists are <em>data rows</em>.
+In data rows the order of the items doesn't matter. For <em>data rows</em> columns may be omitted.</p>
+<p class="last">In this example we have a table title, one header row and one stub column. The &quot;year&quot; column is
+given a width of 10%. The remaining 90% are equally split and given to the
+remaining columns.</p>
+</td>
+</tr>
+<tr><td><pre class="first last literal-block">
+.. field-list-table:: Albums of Peter, Paul &amp; Mary.
+ :header-rows: 1
+ :stub-columns: 1
+
+ * :year,10:    Year
+   :type a:  Album Type A
+   :type b:  Album Type B
+
+ * :type a:  Peter, Paul and Mary
+   :year:    1962
+
+ * :type a:  Moving
+   :year:    1963
+
+ * :year:    1963
+   :type b:  In the Wind
+
+ * :year:    1964
+   :type a:  In Concert
+
+ * :year:    1965
+   :type b:  ASong will Rise
+
+ * :year:    1965
+   :type a:  See What Tomorrow Brings
+</pre>
+</td>
+<td><table border="1" class="first last docutils">
+<caption>Albums of Peter, Paul &amp; Mary.</caption>
+<colgroup>
+<col width="10%" />
+<col width="45%" />
+<col width="45%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head stub">Year</th>
+<th class="head">Album Type A</th>
+<th class="head">Album Type B</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><th class="stub">1962</th>
+<td>Peter, Paul and Mary</td>
+<td>&nbsp;</td>
+</tr>
+<tr><th class="stub">1963</th>
+<td>Moving</td>
+<td>&nbsp;</td>
+</tr>
+<tr><th class="stub">1963</th>
+<td>&nbsp;</td>
+<td>In the Wind</td>
+</tr>
+<tr><th class="stub">1964</th>
+<td>In Concert</td>
+<td>&nbsp;</td>
+</tr>
+<tr><th class="stub">1965</th>
+<td>&nbsp;</td>
+<td>ASong will Rise</td>
+</tr>
+<tr><th class="stub">1965</th>
+<td>See What Tomorrow Brings</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="column-spans">
+<h2><a class="toc-backref" href="#id24">3.5&nbsp;&nbsp;&nbsp;Column spans</a></h2>
+<p>We can have column spans. To make these possible even for
+the first table row there is an option &quot;definition-row&quot;
+working as a flag. It defaults to &quot;no&quot;.</p>
+<p>If &quot;yes&quot;, the flag indicates
+that the first row is used to define the table columns only.
+Its data is then discarded and stripped
+from final output.</p>
+<div class="section" id="id6">
+<h3><a class="toc-backref" href="#id25">3.5.1&nbsp;&nbsp;&nbsp;Source</a></h3>
+<pre class="literal-block">
+.. field-list-table:: Table with column spans.
+ :definition-row: 1
+ :header-rows: 2
+
+ * :a: Ignored, because this is the definition row.
+   :b: We need an explicit definition row, because the table
+   :c: starts with a span.
+
+ * :a..c: This header cell in the first row of the table
+          spans the whole table row
+
+ * :a: Column A
+   :b: Column B
+   :c: Column C
+
+ * :a: one
+   :b: two
+   :c: three
+
+ * :a: one
+   :b..c: two, three
+
+ * :a..b: one, two
+   :c: three
+
+ * :a..c: one, two, three
+</pre>
+</div>
+<div class="section" id="id7">
+<h3><a class="toc-backref" href="#id26">3.5.2&nbsp;&nbsp;&nbsp;Result</a></h3>
+<table border="1" class="docutils">
+<caption>Table with column spans.</caption>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" colspan="3">This header cell in the first row of the table
+spans the whole table row</th>
+</tr>
+<tr><th class="head">Column A</th>
+<th class="head">Column B</th>
+<th class="head">Column C</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>one</td>
+<td>two</td>
+<td>three</td>
+</tr>
+<tr><td>one</td>
+<td colspan="2">two, three</td>
+</tr>
+<tr><td colspan="2">one, two</td>
+<td>three</td>
+</tr>
+<tr><td colspan="3">one, two, three</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="complex-example-for-column-and-row-spans">
+<h2><a class="toc-backref" href="#id27">3.6&nbsp;&nbsp;&nbsp;Complex example for column and row spans</a></h2>
+<div class="section" id="id8">
+<h3><a class="toc-backref" href="#id28">3.6.1&nbsp;&nbsp;&nbsp;Source</a></h3>
+<pre class="literal-block">
+.. field-list-table:: Table with row and column spans
+ :definition-row: 1
+ :header-rows: 2
+
+ * :a:
+   :b:
+   :c:
+   :d:
+
+ * :a:
+   :b..c: Middle top
+   :d:
+
+ * :(a):
+   :b..c: Middle bottom
+   :(d):
+
+ * :a: Column A
+   :b: Column B
+   :c: Column C
+   :d: y
+
+ * :a: one
+   :b: two
+   :c: three
+   :(d):
+
+ * :(a):
+   :b..c: two, three
+   :d: y
+
+ * :a..b: one, two
+   :c: three
+   :(d):
+
+ * :a..c: one, two, three
+   :(d):
+</pre>
+</div>
+<div class="section" id="id9">
+<h3><a class="toc-backref" href="#id29">3.6.2&nbsp;&nbsp;&nbsp;Result</a></h3>
+<table border="1" class="docutils">
+<caption>Table with row and column spans</caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head" rowspan="2">&nbsp;</th>
+<th class="head" colspan="2">Middle top</th>
+<th class="head" rowspan="2">&nbsp;</th>
+</tr>
+<tr><th class="head" colspan="2">Middle bottom</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Column A</td>
+<td>Column B</td>
+<td>Column C</td>
+<td rowspan="2">y</td>
+</tr>
+<tr><td rowspan="2">one</td>
+<td>two</td>
+<td>three</td>
+</tr>
+<tr><td colspan="2">two, three</td>
+<td rowspan="3">y</td>
+</tr>
+<tr><td colspan="2">one, two</td>
+<td>three</td>
+</tr>
+<tr><td colspan="3">one, two, three</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="another-complex-spanning-example">
+<h2><a class="toc-backref" href="#id30">3.7&nbsp;&nbsp;&nbsp;Another complex spanning example</a></h2>
+<p>Complex spanning pattern (no edge knows all rows and columns):</p>
+<div class="section" id="source-in-grid-notation">
+<h3><a class="toc-backref" href="#id31">3.7.1&nbsp;&nbsp;&nbsp;Source in grid notation</a></h3>
+<pre class="literal-block">
++-----------+-------------------------+
+| W/NW cell | N/NE cell               |
+|           +-------------+-----------+
+|           | Middle cell | E/SE cell |
++-----------+-------------+           |
+| S/SE cell               |           |
++-------------------------+-----------+
+</pre>
+</div>
+<div class="section" id="result-of-grid-notation">
+<h3><a class="toc-backref" href="#id32">3.7.2&nbsp;&nbsp;&nbsp;Result of grid notation</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="31%" />
+<col width="37%" />
+<col width="31%" />
+</colgroup>
+<tbody valign="top">
+<tr><td rowspan="2">W/NW cell</td>
+<td colspan="2">N/NE cell</td>
+</tr>
+<tr><td>Middle cell</td>
+<td rowspan="2">E/SE cell</td>
+</tr>
+<tr><td colspan="2">S/SE cell</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="source-in-field-list-table-notation">
+<h3><a class="toc-backref" href="#id33">3.7.3&nbsp;&nbsp;&nbsp;Source in field-list-table notation</a></h3>
+<pre class="literal-block">
+.. field-list-table::
+ :definition-row: yes
+
+ * :a:
+   :b:
+   :c:
+
+ * :a:    W/NW cell
+   :b..c: N/NE cell
+
+ * :(a):
+   :b:    Middle cell
+   :c:    E/SE cell
+
+ * :a..b: S/SW cell
+   :(c):
+</pre>
+</div>
+<div class="section" id="result-of-field-list-table-notation">
+<h3><a class="toc-backref" href="#id34">3.7.4&nbsp;&nbsp;&nbsp;Result of field-list-table notation</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="34%" />
+</colgroup>
+<tbody valign="top">
+<tr><td rowspan="2">W/NW cell</td>
+<td colspan="2">N/NE cell</td>
+</tr>
+<tr><td>Middle cell</td>
+<td rowspan="2">E/SE cell</td>
+</tr>
+<tr><td colspan="2">S/SW cell</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="comprehensive-docutils-example-table">
+<h2><a class="toc-backref" href="#id35">3.8&nbsp;&nbsp;&nbsp;Comprehensive docutils example table</a></h2>
+<div class="section" id="source-given-as-standard-grid-notation-a">
+<h3><a class="toc-backref" href="#id36">3.8.1&nbsp;&nbsp;&nbsp;Source given as standard grid notation (A)</a></h3>
+<pre class="literal-block">
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | Cells may span columns.          |
++------------------------+------------+---------------------+
+| body row 3             | Cells may  | - Table cells       |
++------------------------+ span rows. | - contain           |
+| body row 4             |            | - body elements.    |
++------------------------+------------+----------+----------+
+| body row 5             | Cells may also be     |          |
+|                        | empty: ``--&gt;``        |          |
++------------------------+-----------------------+----------+
+</pre>
+</div>
+<div class="section" id="source-given-as-field-list-table-notation-b">
+<h3><a class="toc-backref" href="#id37">3.8.2&nbsp;&nbsp;&nbsp;Source given as field-list-table notation (B)</a></h3>
+<pre class="literal-block">
+.. field-list-table::
+ :header-rows: 1
+
+ * :a:      Header row, column 1 (header rows optional)
+   :b:      Header 2
+   :c:      Header 3
+   :d:      Header 4
+
+ * :a:      body row 1, column 1
+   :b:      column 2
+   :c:      column 3
+   :d:      column 4
+
+ * :a:      body row 2
+   :b..d:   Cells may span columns.
+
+ * :a:      body row 3
+   :b:      Cells may span rows.
+   :c..d:   - Table cells
+            - contain
+            - body elements.
+
+ * :a:      body row 4
+   :(b):
+   :(c..d):
+
+ * :a:      body row 5
+   :b..c:   Cells may also be empty: ``--&gt;``
+</pre>
+</div>
+<div class="section" id="result-of-standard-grid-notation-a">
+<h3><a class="toc-backref" href="#id38">3.8.3&nbsp;&nbsp;&nbsp;Result of standard grid notation (A)</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="43%" />
+<col width="21%" />
+<col width="18%" />
+<col width="18%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Header row, column 1
+(header rows optional)</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+<th class="head">Header 4</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>body row 1, column 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>column 4</td>
+</tr>
+<tr><td>body row 2</td>
+<td colspan="3">Cells may span columns.</td>
+</tr>
+<tr><td>body row 3</td>
+<td rowspan="2">Cells may
+span rows.</td>
+<td colspan="2" rowspan="2"><ul class="first last simple">
+<li>Table cells</li>
+<li>contain</li>
+<li>body elements.</li>
+</ul>
+</td>
+</tr>
+<tr><td>body row 4</td>
+</tr>
+<tr><td>body row 5</td>
+<td colspan="2">Cells may also be
+empty: <tt class="docutils literal"><span class="pre">--&gt;</span></tt></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="result-of-field-list-table-notation-b">
+<h3><a class="toc-backref" href="#id39">3.8.4&nbsp;&nbsp;&nbsp;Result of field-list-table notation (B)</a></h3>
+<p><strong>Note:</strong>
+The structure of (B) <strong>equals exactly</strong> the structure of (A). For some
+reasons the browser may choose different default widths
+for the columns.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Header row, column 1 (header rows optional)</th>
+<th class="head">Header 2</th>
+<th class="head">Header 3</th>
+<th class="head">Header 4</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>body row 1, column 1</td>
+<td>column 2</td>
+<td>column 3</td>
+<td>column 4</td>
+</tr>
+<tr><td>body row 2</td>
+<td colspan="3">Cells may span columns.</td>
+</tr>
+<tr><td>body row 3</td>
+<td rowspan="2">Cells may span rows.</td>
+<td colspan="2" rowspan="2"><ul class="first last simple">
+<li>Table cells</li>
+<li>contain</li>
+<li>body elements.</li>
+</ul>
+</td>
+</tr>
+<tr><td>body row 4</td>
+</tr>
+<tr><td>body row 5</td>
+<td colspan="2">Cells may also be
+empty: <tt class="docutils literal"><span class="pre">--&gt;</span></tt></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="alignment-for-columns">
+<h2><a class="toc-backref" href="#id40">3.9&nbsp;&nbsp;&nbsp;Alignment for columns</a></h2>
+<p>A default alignment can be specified for each column. The alignment
+may be given by one word from ['left', 'right', 'justify', 'center']
+and one word from ['top', 'middle', 'bottom']. Words are separated
+by one ore more spaces.
+The words may be shortend down to one letter. Letters may be upper or lower case.
+The following spellings all mean the same:</p>
+<div class="line-block">
+<div class="line">right top -&gt; &quot;right top&quot;</div>
+<div class="line">top   right right top top right -&gt; &quot;right top&quot;</div>
+<div class="line">RiGhT ToP  -&gt; &quot;right top&quot;</div>
+<div class="line">RI TO  -&gt; &quot;right top&quot;</div>
+<div class="line">R T  -&gt; &quot;right top&quot;</div>
+<div class="line">r t  -&gt; &quot;right top&quot;</div>
+</div>
+<div class="line-block">
+<div class="line">Contradicting values lead to an error:</div>
+<div class="line"><br /></div>
+<div class="line">left right top -&gt; error</div>
+<div class="line">Top Bottom -&gt; error</div>
+<div class="line">L R -&gt; error</div>
+<div class="line">B T -&gt; error</div>
+</div>
+<p>The actual rendering depends on the writer. The modified HTML-writer used here adds classes 'left', 'right', 'center', 'justify', 'top', 'middle', 'bottom' to the TH ord TD tag of the table cell.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head left">left</th>
+<th class="head center">center</th>
+<th class="head right">right</th>
+<th class="head justify">justify</th>
+<th class="head left top">left top</th>
+<th class="head center top">center top</th>
+<th class="head right top">right top</th>
+<th class="head justify top">justify top</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><div class="first last line-block">
+<div class="line">a</div>
+<div class="line">b</div>
+<div class="line">c</div>
+</div>
+</td>
+<td class="left">a b c</td>
+<td class="center">a b c</td>
+<td class="right">a b c</td>
+<td class="justify">a b c</td>
+<td class="left top">a b c</td>
+<td class="center top">a b c</td>
+<td class="right top">a b c</td>
+<td class="justify top">a b c</td>
+</tr>
+<tr><td><div class="first last line-block">
+<div class="line">b</div>
+<div class="line">c</div>
+<div class="line">d</div>
+</div>
+</td>
+<td class="left">b c d</td>
+<td class="center">b c d</td>
+<td class="right">b c d</td>
+<td class="justify">b c d</td>
+<td class="left top">b c d</td>
+<td class="center top">b c d</td>
+<td class="right top">b c d</td>
+<td class="justify top">b c d</td>
+</tr>
+<tr><td><div class="first last line-block">
+<div class="line">c</div>
+<div class="line">d</div>
+<div class="line">e</div>
+</div>
+</td>
+<td class="left">c d e</td>
+<td class="center">c d e</td>
+<td class="right">c d e</td>
+<td class="justify">c d e</td>
+<td class="left top">c d e</td>
+<td class="center top">c d e</td>
+<td class="right top">c d e</td>
+<td class="justify top">c d e</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="11%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">&nbsp;</th>
+<th class="head left middle">left middle</th>
+<th class="head center middle">center middle</th>
+<th class="head right middle">right middle</th>
+<th class="head justify middle">justify middle</th>
+<th class="head left bottom">left bottom</th>
+<th class="head center bottom">center bottom</th>
+<th class="head right bottom">right tbottom</th>
+<th class="head justify bottom">justify bottom</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><div class="first last line-block">
+<div class="line">a</div>
+<div class="line">b</div>
+<div class="line">c</div>
+</div>
+</td>
+<td class="left middle">a b c</td>
+<td class="center middle">a b c</td>
+<td class="right middle">a b c</td>
+<td class="justify middle">a b c</td>
+<td class="left bottom">a b c</td>
+<td class="center bottom">a b c</td>
+<td class="right bottom">a b c</td>
+<td class="justify bottom">a b c</td>
+</tr>
+<tr><td><div class="first last line-block">
+<div class="line">b</div>
+<div class="line">c</div>
+<div class="line">d</div>
+</div>
+</td>
+<td class="left middle">b c d</td>
+<td class="center middle">b c d</td>
+<td class="right middle">b c d</td>
+<td class="justify middle">b c d</td>
+<td class="left bottom">b c d</td>
+<td class="center bottom">b c d</td>
+<td class="right bottom">b c d</td>
+<td class="justify bottom">b c d</td>
+</tr>
+<tr><td><div class="first last line-block">
+<div class="line">c</div>
+<div class="line">d</div>
+<div class="line">e</div>
+</div>
+</td>
+<td class="left middle">c d e</td>
+<td class="center middle">c d e</td>
+<td class="right middle">c d e</td>
+<td class="justify middle">c d e</td>
+<td class="left bottom">c d e</td>
+<td class="center bottom">c d e</td>
+<td class="right bottom">c d e</td>
+<td class="justify bottom">c d e</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="alignment-for-individual-table-cells">
+<h2><a class="toc-backref" href="#id41">3.10&nbsp;&nbsp;&nbsp;Alignment for individual table cells</a></h2>
+<p>Each cell may be given an individual alignment.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head stub">&nbsp;</th>
+<th class="head left">left</th>
+<th class="head center">center</th>
+<th class="head right">right</th>
+<th class="head justify">justify</th>
+<th class="head">dummy</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><th class="stub top">top</th>
+<td class="left top">a b c</td>
+<td class="center top">a b c</td>
+<td class="right top">a b c</td>
+<td class="justify top">a b c</td>
+<td class="center"><div class="first last line-block">
+<div class="line">a</div>
+<div class="line">b</div>
+<div class="line">c</div>
+</div>
+</td>
+</tr>
+<tr><th class="stub">middle</th>
+<td class="left middle">B c d</td>
+<td class="center middle">B c d</td>
+<td class="right middle">B c d</td>
+<td class="justify middle">B c d</td>
+<td class="center"><div class="first last line-block">
+<div class="line">B</div>
+<div class="line">c</div>
+<div class="line">d</div>
+</div>
+</td>
+</tr>
+<tr><th class="stub">bottom</th>
+<td class="left bottom">C d e</td>
+<td class="center bottom">C d e</td>
+<td class="right bottom">C d e</td>
+<td class="justify bottom">C d e</td>
+<td class="center"><div class="first last line-block">
+<div class="line">C</div>
+<div class="line">d</div>
+<div class="line">e</div>
+</div>
+</td>
+</tr>
+<tr><th class="stub">individual</th>
+<td class="right top">right top</td>
+<td class="left bottom">left bottom</td>
+<td class="center middle">center middle</td>
+<td class="justify">default</td>
+<td class="center"><div class="first last line-block">
+<div class="line">C</div>
+<div class="line">d</div>
+<div class="line">e</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="comments-within-the-source-of-a-field-list-table">
+<h2><a class="toc-backref" href="#id42">3.11&nbsp;&nbsp;&nbsp;Comments within the source of a field-list-table</a></h2>
+<p>If the <em>field name</em> consists of punctuation characters only
+the whole field list item is treated as comment and removed
+before further processing starts.</p>
+<div class="section" id="id10">
+<h3><a class="toc-backref" href="#id43">3.11.1&nbsp;&nbsp;&nbsp;Source</a></h3>
+<pre class="literal-block">
+.. field-list-table::
+ :header-rows: 1
+
+ * :=========================================:
+   :---: This is comment only
+   :~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:
+
+ * :---: comment. This is the definition row.
+   :firstrealcolumn: First
+   :second:          Second
+
+ * :+++: comment
+   :firstrealcolumn: This is data in column 1
+   :second:          This is data in column 2
+</pre>
+</div>
+<div class="section" id="id11">
+<h3><a class="toc-backref" href="#id44">3.11.2&nbsp;&nbsp;&nbsp;Result</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">First</th>
+<th class="head">Second</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>This is data in column 1</td>
+<td>This is data in column 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="defining-columns-column-identifiers">
+<h2><a class="toc-backref" href="#id45">3.12&nbsp;&nbsp;&nbsp;Defining columns: column identifiers</a></h2>
+<p>The first row is the <em>definition row</em>. The order of the field list items
+determine the order of the columns. Each column has a <em>columnId</em> which
+is taken from the field name. Column spans are noted in '..'-notation.
+Rowspans are indicated by putting column identifiers in parantheses.
+Examples:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="18%" />
+<col width="53%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">field name</th>
+<th class="head">columnId</th>
+<th class="head">remark</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>:fname: First name</td>
+<td>'fname'</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:lname: Last name</td>
+<td>'lname'</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:city:  City</td>
+<td>'city'</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:fname..city:</td>
+<td>&nbsp;</td>
+<td>column span from 'fname' to 'city'</td>
+</tr>
+<tr><td>:1:     One</td>
+<td>'1'</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:2:     Two</td>
+<td>'2'</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:3:     Three</td>
+<td>'3'</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:(3):</td>
+<td>&nbsp;</td>
+<td>rowspan - column '3' is continued</td>
+</tr>
+<tr><td>:1..3:</td>
+<td>&nbsp;</td>
+<td>column span from '1' to '3'</td>
+</tr>
+<tr><td>:(1..3):</td>
+<td>&nbsp;</td>
+<td>rowspan - colspan '1' to '3' is continued</td>
+</tr>
+<tr><td>:A and B:</td>
+<td>'A and B'</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:yes - me too:</td>
+<td>'yes - me too'</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="defining-columns-column-ids-widths-alignments">
+<h2><a class="toc-backref" href="#id46">3.13&nbsp;&nbsp;&nbsp;Defining columns: column ids, widths, alignments</a></h2>
+<p>There may be a column widths and an alignment
+specification as well. They have to follow the columnId
+and must be separated by commas. Syntax:
+<tt class="docutils literal"><span class="pre">:NAME[,[WIDTH][,[ALIGNMENT]]]</span></tt>.</p>
+<p>Examples:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="37%" />
+<col width="23%" />
+<col width="16%" />
+<col width="24%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">field name</th>
+<th class="head">column id</th>
+<th class="head">width</th>
+<th class="head">alignment</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>:abc , ,:</td>
+<td>'abc'</td>
+<td>default</td>
+<td>default</td>
+</tr>
+<tr><td>:abc,,,,:</td>
+<td>'abc'</td>
+<td>default</td>
+<td>default</td>
+</tr>
+<tr><td>:abc,,,,  :</td>
+<td>error!</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>:abc,10:</td>
+<td>'abc'</td>
+<td>10</td>
+<td>default</td>
+</tr>
+<tr><td>:abc,,t r:</td>
+<td>'abc'</td>
+<td>default</td>
+<td>top right</td>
+</tr>
+<tr><td>:abc,60,bottom:</td>
+<td>'abc'</td>
+<td>60</td>
+<td>bottom</td>
+</tr>
+<tr><td>:abc,,L M:</td>
+<td>'abc'</td>
+<td>60</td>
+<td>left middle</td>
+</tr>
+</tbody>
+</table>
+<p>The total width of a table row defaults to 100. It may be set to another
+positive integer value using the 'total-width' option of the field-list-table
+directive.</p>
+<p>The <strong>width</strong> of columns without explicit specification will be assigned
+automatically. Any remaining free space in the row equally be distributed
+to those columns.</p>
+<p><strong>Alignment</strong> is explained elsewhere in this document.</p>
+</div>
+<div class="section" id="options-for-the-field-list-table-directive">
+<h2><a class="toc-backref" href="#id47">3.14&nbsp;&nbsp;&nbsp;Options for the field-list-table directive</a></h2>
+<pre class="literal-block">
+option_spec = {
+    'class'          : directives.class_option,
+    'name'           : directives.unchanged,
+    'header-rows'    : directives.nonnegative_int,
+    'stub-columns'   : directives.nonnegative_int,
+
+    'definition-row' : yes_no_zero_one,
+    'total-width'    : directives.nonnegative_int,
+    'allow-comments' : yes_no_zero_one,
+    'debug-cellinfo' : yes_no_zero_one,
+    'transformation' : yes_no_zero_one,
+}
+</pre>
+<dl class="docutils">
+<dt>class, name, header-rows, stub-columns</dt>
+<dd><p class="first">These work the same way as described for <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#list-table">list-table</a>.
+In short:</p>
+<ul class="last simple">
+<li>class: The class name. Is rendered as <tt class="docutils literal"><span class="pre">class=&quot;...&quot;</span></tt> in HTML.</li>
+<li>name: A name. Is rendered as <tt class="docutils literal"><span class="pre">id=&quot;...&quot;</span></tt> in HTML.</li>
+<li>header-rows: A positive integer. Determines
+how many rows will make up the table header.</li>
+<li>stub-columns: Is a positive integer. Determines
+how many columns to the left are &quot;header&quot; columns.</li>
+</ul>
+</dd>
+</dl>
+<dl class="docutils">
+<dt>definition-row</dt>
+<dd>May be True or False. Default is False. Takes one
+of the values 'yes', '1', 'no', '0'. If True,
+the first row of the table is treated as 'definition-row'
+as usual but is not shown in output.</dd>
+<dt>total-width</dt>
+<dd>Is a positive integer. Default is 100. It sets the maximum for the total
+width of all columns.</dd>
+<dt>allow-comments</dt>
+<dd>May be True or False. Default is True. Takes one
+of the values 'yes', '1', 'no', '0'. If False,
+items will never be treated as comment even if the
+field name consists of a sequence of on punctuation
+character only.</dd>
+<dt>debug-cellinfo</dt>
+<dd>May be True or False. Default is False. Takes one
+of the values 'yes', '1', 'no', '0'. If switched
+on it will display information about table cells
+right in the table cell itself. This mainly aims
+at developers but may be useful to users of
+the field-list-table directive as well.</dd>
+<dt>transformation</dt>
+<dd><p class="first">May be True or False. Default is True. Takes one
+of the values 'yes', '1', 'no', '0'. If set to
+False it will put the directive in &quot;pass through&quot;
+mode. The transformation of the nested list
+structure into the table structure is skipped
+and the list structure is returned unaltered.</p>
+<p class="last">If provided by the application the commandline
+option <tt class="docutils literal"><span class="pre">--field-list-table-off</span></tt> has the same effect.
+It has higher priority and affects all 'field-list-tables'.</p>
+</dd>
+</dl>
+<hr class="docutils" />
+<p>This is the end.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference external" href="1-demo.rst">View document source</a>.
+
+</div>
+</body>
+</html>
