@@ -1,3 +1,7 @@
+# ###
+# Begin Github proposals
+# ###
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -52,3 +56,12 @@ docs/_build/
 
 # PyBuilder
 target/
+
+# ###
+# End Github proposals
+# ###
+
+# more
+
+.idea
+*NOT_VERSIONED*
