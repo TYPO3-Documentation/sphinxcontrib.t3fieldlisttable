@@ -39,7 +39,7 @@ setup(
 
         # Indicate who your project is intended for
         'Intended Audience :: End Users/Desktop',
-        'Framework :: Sphinx :: Extension'
+        'Framework :: Sphinx :: Extension',
 
         # Pick your license as you wish (should match "license" above)
         'License :: OSI Approved :: BSD License',
