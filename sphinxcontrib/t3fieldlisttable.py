@@ -638,3 +638,9 @@ class FieldListTable(Table):
 
 def setup(app):
     app.add_directive('t3-field-list-table', FieldListTable)
+    return {
+        "version": "0.3.1",
+        "parallel_read_safe": True,
+        "parallel_write_safe": True,
+    }
+
