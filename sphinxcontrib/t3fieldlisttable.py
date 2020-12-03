@@ -36,6 +36,8 @@
 Directive for field-list-table elements.
 """
 
+from __future__ import absolute_import
+from six.moves import range
 __docformat__ = 'reStructuredText'
 
 import sys
@@ -88,7 +90,7 @@ class FieldListTable(Table):
         self.tableInfo = []
         try:
             result = self.run2()
-        except FieldListTableError, errorargs:
+        except FieldListTableError as errorargs:
             self.errorstr = str(errorargs)
         if not self.errorstr is None:
             error = self.errormsg(self.errorstr)
@@ -99,7 +101,7 @@ class FieldListTable(Table):
     def run2(self):
         if not self.content:
             msg = 'The directive is empty - content is required.'
-            raise FieldListTableError, msg
+            raise FieldListTableError(msg)
         title, messages = self.make_title()
         self.node = nodes.Element()
         self.state.nested_parse(self.content, self.content_offset, self.node)
@@ -119,11 +121,11 @@ class FieldListTable(Table):
         if len(self.node) != 1:
             msg =("Exactly one item (a bullet list) expected. "
                   "%s items found instead." % len(self.node))
-            raise FieldListTableError, msg
+            raise FieldListTableError(msg)
         if not isinstance(self.node[0],nodes.bullet_list):
             msg = ("Content type is wrong. Exactly one bullet list "
                    "is expected.")
-            raise FieldListTableError, msg
+            raise FieldListTableError(msg)
         if self.options.get('definition-row') in ['yes', '1']:
             self.definitionRow = 1
         else:
@@ -220,14 +222,14 @@ class FieldListTable(Table):
             if '..' in columnId:
                 msg = ("colspan ('%s') is not allowed in the first row "
                        "as this is the definition row." % columnId)
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
             if columnId.startswith('('):
                 msg = ("rowspan ('%s') is not allowed in the first row "
                        "as this is the definition row." % columnId)
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
             if self.columnIdsIndexes.get(columnId, None) != None:
                 msg = "Duplicate column '%s'." % columnId
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
             cellInfo = {}
             cellInfo['columnId'     ] = columnId
             cellInfo['columnIdRange'] = columnIdRange
@@ -270,7 +272,7 @@ class FieldListTable(Table):
                 if columnIdRaw.startswith('('):
                     if not columnIdRaw.endswith(')'):
                         msg = "Illegal field name '%s'." % fieldNameRaw
-                        raise FieldListTableError, msg
+                        raise FieldListTableError(msg)
                     rowspanSituation = True
                     columnIdRange = columnIdRaw[1:-1]
                 else:
@@ -289,15 +291,15 @@ class FieldListTable(Table):
                 if startIdIndex is None:
                     msg = ("Field '%s' of range '%s' does not exist."
                            % (columnId, columnIdRange))
-                    raise FieldListTableError, msg
+                    raise FieldListTableError(msg)
                 if endIdIndex is None:
                     msg = ("Field '%s' of range '%s' does not exist."
                            % (endId, columnIdRange))
-                    raise FieldListTableError, msg
+                    raise FieldListTableError(msg)
                 if endIdIndex < startIdIndex:
                     msg = ("Field names '%s' and '%s' in range '%s' have "
                            "wrong order." % (columnId, endId, columnIdRange))
-                    raise FieldListTableError, msg
+                    raise FieldListTableError(msg)
                 # check and prepare what has been given as alignment spec
                 if align:
                     dummy, hAlign, vAlign = self.isValidAlignment(align)
@@ -318,12 +320,12 @@ class FieldListTable(Table):
                         msg = ("Value for column %s ('%s') is specified "
                                "more than once." % (self.colNum + 1,
                             self.tableInfo[0][self.colNum]['columnId']))
-                        raise FieldListTableError, msg
+                        raise FieldListTableError(msg)
                 if infoRow[startIdIndex].get('isInColspan',None):
                     msg = ("Value for table column %s ('%s') is specified "
                            "more than once." % (startIdIndex + 1,
                             self.tableInfo[0][startIdIndex]['columnId']))
-                    raise FieldListTableError, msg
+                    raise FieldListTableError(msg)
                 infoRow[startIdIndex]['colNum'        ] = startIdIndex
                 infoRow[startIdIndex]['rowNum'        ] = rowNum
                 infoRow[startIdIndex]['columnId'      ] = columnId
@@ -337,7 +339,7 @@ class FieldListTable(Table):
                     if fieldBody.children:
                         msg = ("No content is allowed for cells that are "
                                "covered by a rowspan.")
-                        raise FieldListTableError, msg
+                        raise FieldListTableError(msg)
                     infoRow[startIdIndex]['isFollowingRow'] = True
                     rowspanSituation = False
                 else:
@@ -372,7 +374,7 @@ class FieldListTable(Table):
                     if valueError or colwidth < 0:
                         msg = ("Illegal column width '%s'. Must be integer "
                                "between 0 and %s." % (colwidth, rowWidth))
-                        raise FieldListTableError, msg
+                        raise FieldListTableError(msg)
                     sumOfWidths += colwidth
                 resultRow.append(colwidth)
 
@@ -380,7 +382,7 @@ class FieldListTable(Table):
                 msg = ("The columns have a total width of %s. This "
                        "exceeds the allowed maximum of %s." %
                        (sumOfWidths, rowWidth))
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
         if 'pass 2':
             nToGo = cntMissingOnes
             widthInserted = 0
@@ -407,7 +409,7 @@ class FieldListTable(Table):
                 canonical, hAlign, vAlign = self.isValidAlignment(v)
                 if not canonical:
                     msg = "Unknown alignment '%s'" % v
-                    raise FieldListTableError, msg
+                    raise FieldListTableError(msg)
                 else:
                     v = canonical
 
@@ -453,14 +455,14 @@ class FieldListTable(Table):
             if not isDefinitionRow:
                 msg = ("Column width specification is only allowed in "
                        "the definition row (first row).")
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
         else:
             colwidth = None
         if align:
             canonical, hAlign, vAlign = self.isValidAlignment(align)
             if not canonical:
                 msg = "Unknown alignment '%s'." % align
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
             else:
                 align = canonical
         else:
@@ -479,11 +481,11 @@ class FieldListTable(Table):
             if not listLen == 1:
                 msg = ("Exactly one item (a field list) for bullet list "
                        "item expected. %s items found instead." % listLen)
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
             if not isinstance(listItem[0], nodes.field_list):
                 msg = ("Exactly on field list as bullet list item "
                        "expected.")
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
 
     def checkTableDimensions(self, rows, header_rows, stub_columns):
         if (len(rows)-self.definitionRow) < header_rows:
@@ -493,7 +495,7 @@ class FieldListTable(Table):
                 msg = ''
             msg += ("%s header row(s) specified but only %s row(s) "
                    "supplied." % (header_rows, len(rows)))
-            raise FieldListTableError, msg
+            raise FieldListTableError(msg)
         if (len(rows)-self.definitionRow) == header_rows:
             if self.definitionRow:
                 msg = "1 definition row and "
@@ -502,18 +504,18 @@ class FieldListTable(Table):
             msg += ("%s header row(s) specified but only %s row(s) "
                    "supplied. There's no data remaining for the table body."
                     % (header_rows, len(rows)))
-            raise FieldListTableError, msg
+            raise FieldListTableError(msg)
         for row in rows:
             if len(row) < stub_columns:
                 msg = ("%s stub column(s) specified but only %s column(s) "
                        "supplied." % (stub_columns, len(row)))
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
             if len(row) == stub_columns > 0:
                 msg = ("%s stub column(s) specified but only %s column(s) "
                        "supplied. There is no data remaining for the "
                        "table body."
                        % (stub_columns, len(row)))
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
 
     def checkRowspans(self):
         headerRows = self.options.get('header-rows', 0)
@@ -522,12 +524,12 @@ class FieldListTable(Table):
             if info.get('isFollowingRow'):
                 msg = ("The first table row is the definition row. It cannot "
                        "have cells that belong to a previous rowspan.")
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
         for info in self.tableInfo[firstTBodyRow]:
             if info.get('isFollowingRow', False):
                 msg = ("The first table body row cannot have cells that "
                        "belong to a previous rowspan.")
-                raise FieldListTableError, msg
+                raise FieldListTableError(msg)
         for self.rowNum in range(len(self.tableData)-1,
                                  self.definitionRow-1,
                                  -1):
@@ -545,13 +547,13 @@ class FieldListTable(Table):
                             msg = ("rowspan '%s' does not match previous "
                                    "row. Found a colspan instead." %
                                    (info['columnIdRange'],))
-                            raise FieldListTableError, msg
+                            raise FieldListTableError(msg)
                         val2 = info2.get('columnIdRange', None)
                         val1 = info.get('columnIdRange', None)
                         if val2  != val1 :
                             msg = ("rowspan '%s' does not match previous "
                                    "field '%s'" % (val1, val2))
-                            raise FieldListTableError, msg
+                            raise FieldListTableError(msg)
                         if not info2.get('isFollowingRow'):
                             if info2.get('rowspan', None) is None:
                                 info2['rowspan'] = rowspan

@@ -8,6 +8,8 @@
 A minimal web front end to produce HTML
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 if 1:
     import sys
     sys.argv = sys.argv[:1]
@@ -16,17 +18,17 @@ if 1:
     sys.argv += ['--stylesheet-path=styles.css']
     sys.argv += ['1-demo.rst', '1-demo.rst.html']
 
-print 'Content-type:text/html'
-print
-print '<pre>'
-print "starting by importing 'rst2html_typo3'"
-print "If no 'Finished.' follows here there probably has been an error."
+print('Content-type:text/html')
+print()
+print('<pre>')
+print("starting by importing 'rst2html_typo3'")
+print("If no 'Finished.' follows here there probably has been an error.")
 
 
 import rst2html_typo3
 
-print
-print "Finished."
-print "Success is unknown."
-print "Please see if a new file has been produced."
-print '</pre>'
+print()
+print("Finished.")
+print("Success is unknown.")
+print("Please see if a new file has been produced.")
+print('</pre>')

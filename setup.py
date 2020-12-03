@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from setuptools import setup, find_packages
 from codecs import open
 from os import path
@@ -14,7 +15,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/development.html#single-sourcing-the-version
-    version='0.2.0',
+    version='0.3.0',
 
     description='Implement t3-field-list-table Directive for Sphinx',
     long_description=long_description,
